@@ -20,6 +20,11 @@ public class Client {
         }
     }
     public static void main(String[] args) {
-        
+        Client cl = new Client();
+        try {
+            cl.run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
