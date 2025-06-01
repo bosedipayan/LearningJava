@@ -1,13 +1,15 @@
+// File: SingleThreaded/Server.java
 package SingleThreaded;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
 
-    public void run() {
+    public void run() throws IOException {
         int port = 8080;
         try (ServerSocket socket = new ServerSocket(port)) {
             socket.setSoTimeout(10000);
@@ -18,6 +20,10 @@ public class Server {
             PrintWriter toClient = new PrintWriter(clientSocket.getOutputStream(), true);
 
             BufferedReader fromClient = new BufferedReader(new java.io.InputStreamReader(clientSocket.getInputStream()));
+
+            toClient.close();
+            fromClient.close();
+            clientSocket.close();
         } catch (java.io.IOException e) {
             e.printStackTrace();
         }

@@ -15,6 +15,10 @@ public class Client {
             toServer.println("Hello, Server!");
             String response = fromServer.readLine();
             System.out.println("Response from server: " + response);
+
+            toServer.close();
+            fromServer.close();
+            socket.close();
         } catch (java.io.IOException e) {
             e.printStackTrace();
         }
