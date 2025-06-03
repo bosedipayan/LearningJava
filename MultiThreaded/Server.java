@@ -20,7 +20,7 @@ public class Server {
         }
     };
     public static void main(String[] args) {
-        int port = 80801; // Default port
+        int port = 8081; // Default port
         Server server = new Server();
         try{
             ServerSocket serverSocket = new ServerSocket(port);
