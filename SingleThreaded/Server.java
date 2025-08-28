@@ -18,8 +18,8 @@ public class Server {
             Socket clientSocket = socket.accept();
             System.out.println("Client connected: " + clientSocket.getRemoteSocketAddress());
             PrintWriter toClient = new PrintWriter(clientSocket.getOutputStream(), true);
-
-            BufferedReader fromClient = new BufferedReader(new java.io.InputStreamReader(clientSocket.getInputStream()));
+            
+            BufferedReader fromClient = new BufferedReader(new java.io.InputStreamReader(clientSocket.getInputStream()));                                                                                                                       
 
             toClient.close();
             fromClient.close();
